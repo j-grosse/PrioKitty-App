@@ -1,0 +1,93 @@
+
+@import url(https://fonts.googleapis.com/css?family=Open+Sans:400italic,400);
+
+body {
+  font: normal normal 18px/16px "Open Sans", sans-serif;
+  background-color: #ffffff;
+  background-image: url("https://wallpapercave.com/download/kawaii-cat-wallpapers-wp2358818");  
+}
+
+
+/* Todo list */
+
+.container{
+  padding: 20px;
+  width: 300px;
+  margin: 0 auto;
+  margin-top: 40px;
+  background: rgba(255, 255, 255, 0.50);
+  font-size: 20px;
+  border-radius: 5px;}
+}
+
+form {
+display: inline-block;
+}
+
+input, select, textarea {
+font-size: 100%;
+padding: 4px 15px 4px 5px;
+width: 100%;
+}
+
+#button{
+display: inline-block;
+background-color:#ee719e;
+color:#ffffff;
+border-radius: 5px;
+text-align:center;
+margin-top:2px;
+padding: 5px 15px;
+}
+
+#button:hover{
+cursor: pointer;
+opacity: .8;
+ol {padding-left: 20px;}
+ol li {padding: 5px;color:#000000;}
+ol li:nth-child(even){background: #dfdfdf;}
+.strike{text-decoration: line-through;}
+}
+
+li:hover{
+  cursor: pointer;
+}
+
+.delete {
+	display: none;
+}
+
+li > crossOutButton {
+	background: none;
+	border: none;
+	float: right;
+	color: #ee719e;
+	font-weight: 800;
+}
+
+
+/* Pomodoro timer */
+
+#app {
+  display: flex;
+  flex-direction: column;
+  max-width: 250px;
+  margin: 20px auto;
+}
+
+#app h1 {
+  font-size: 5em;
+  text-align: center;
+  line-height: 1em;
+}
+
+#app h4 {
+  font-size: 1em;
+  text-align: center;
+  margin-bottom: 20px;
+  font-style: italic;
+}
+
+#app button {
+  margin-bottom: 7px;
+}
