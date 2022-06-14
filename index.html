@@ -4,64 +4,52 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>PrioKitty</title>
-
     <link href="https://cdnjs.cloudflare.com/ajax/libs/bulma/0.7.5/css/bulma.css" rel="stylesheet" type="text/css" />
     <link href="style.css" rel="stylesheet" type="text/css" />
     <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
     <script defer src="https://use.fontawesome.com/releases/v5.3.1/js/all.js"></script>
   </head>
-  
   <body>
-    <center><h1>PrioKitty</h1></center>
-    
+      
+    <div class="title">
+      <h1>PrioKitty</h1>
+    </div>
+
 
     <!-- Todo list -->
   	<div class="container">
-    <!-- <p>Double click to mark off, drag items to reorder</p> -->
+
 		  <form name="toDoList">
-			  <input type="text" name="ListItem" id="input"/>
-		  </form>
-    
-		  <div onclick="newItem()" id="button">Add task</div>
-		  <br/>
-		  <ol id="list"></ol>
-    </div>
-    
-    <script src="https://code.jquery.com/jquery-3.5.1.js"
-  integrity="sha256-QWo7LDvxbWT2tbbQ97B53yJnYU3WhH/C8ycbRAkjPDc="
-  crossorigin="anonymous"></script>
-    <script src= "https://code.jquery.com/ui/1.12.1/jquery-ui.js"
-  integrity="sha256-T0Vest3yCU7pafRw9r+settMBX6JkKN06dqBnpQ8d30="
-  crossorigin="anonymous"></script>
-    
-    &nbsp;
+			  <input type="text" name="ListItem" id="input"> 
+		  <div onclick="newItem()" id="button">add</div>
+
+      
+    <!-- play & purr buttons -->
+      <audio id="sound1" src="purr.mp3"></audio>      
+      <div style="float:right" onclick="sound1.play();" id="button">purr</div> 
+      
+      <audio id="music" src="http://schizoid.in/schizoid-dub.pls?icy=http"></audio>      
+      <div style="float:right" onclick="music.play();" id="button">play</div>
+        
+      </form>
+      
+		  <ul id="list"><br/></ul>
 
     
     <!-- Pomodoro timer -->
-
     <div id="app">
       <h1>{{Math.floor(time_remaining / 60).toString().padStart(2, "0")}}:{{(time_remaining % 60).toString().padStart(2, "0")}}</h1>
-      <h4>{{(timer_state == 'work') ? '' : 'Time to take a break!'}}</h4>      
+      <h4>{{(timer_state == 'work') ? '' : ''}}</h4>      
       <button class="button is-rounded is-primary" v-on:click="timer('start')" :disabled="timer_running">Start</button>
-      <button class="button is-rounded" v-on:click="timer('reset')" :disabled="!timer_running">Reset</button>      
-      <button class="button is-rounded" v-on:click="timer('pause')" :disabled="!timer_running">{{(timer_paused) ? 'Continue' : 'Stop'}}</button>
       <button class="button is-rounded" v-on:click="timer('skip')" :disabled="!timer_running || timer_paused">{{(timer_state == 'work') ? 'Start break 🚽' : 'Start Timer 📂'}}</button>
+      <button class="button is-rounded" v-on:click="timer('reset')" :disabled="!timer_running">Reset</button>
     </div>
-    
+      
     <script src="script.js"></script>
-
-    
-&nbsp;
-    <!-- webradio -->    
-    <div id="webradio">
-      <center>
-      <audio controls src="http://schizoid.in/schizoid-dub.pls?icy=http" id="myAudioDub"></audio></center>
-      <!-- <audio controls scr="http://schizoid.in/schizoid-chill.pls?icy=http" autoplay id="myAudio"></audio> -->
-&nbsp;
-      <center><audio id="sound1" src="purr.mp3"></audio>
-      <button onclick="document.getElementById('sound1').play();">Purrrr!</button>
-      </center>
-&nbsp;
-    
+    &nbsp;
+    &nbsp;
+    &nbsp;
+      
+    </div>       
   </body>
 </html>

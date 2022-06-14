@@ -1,7 +1,9 @@
 // Todo list
 
+
 function newItem(){
 
+  
 //1. Adding a new item to the list of items: 
    let li = document.createElement("li");
    let inputValue = document.getElementById("input").value;
@@ -10,11 +12,11 @@ function newItem(){
 
    if (inputValue === '') {
      alert("You must write something!");
-   } else {
-     let list = document.querySelector('#list');
+   } else { 
+   let list = document.querySelector('#list');
       list.appendChild(li);
    }
-
+  
  //2. Crossing out an item from the list of items:
    function crossOut() {
  		li.classList.toggle("strike");
@@ -23,7 +25,7 @@ function newItem(){
 
  //3(i). Adding the delete button "X": 
    let crossOutButton = document.createElement("crossOutButton");
- 	  crossOutButton.appendChild(document.createTextNode("🐈"));
+ 	  crossOutButton.appendChild(document.createTextNode("🐈 X"));
  	  li.appendChild(crossOutButton);
 
  	crossOutButton.addEventListener("click", deleteListItem);

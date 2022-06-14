@@ -1,12 +1,27 @@
-
-@import url(https://fonts.googleapis.com/css?family=Open+Sans:400italic,400);
-
 body {
   font: normal normal 18px/16px "Open Sans", sans-serif;
   background-color: #ffffff;
-  background-image: url("https://wallpapercave.com/download/kawaii-cat-wallpapers-wp2358818");  
+  background-repeat: repeat;
+  background-position: center center;
+  background-image: url("https://thumbs.dreamstime.com/b/cute-cat-pattern-seamless-cartoon-cats-different-breeds-colors-65614264.jpg"); 
 }
 
+.title{
+  font-size: 3em;
+  text-align: center;
+  line-height: 1em;
+  color: #cb8e53;
+  text-shadow:
+    /* Outline */
+    -1px -1px 0 #ffffff,
+    1px -1px 0 #ffffff,
+    -1px 1px 0 #ffffff,
+    1px 1px 0 #ffffff,  
+    -2px 0 0 #ffffff,
+    2px 0 0 #ffffff,
+    0 2px 0 #ffffff,
+    0 -2px 0 #ffffff;   
+}
 
 /* Todo list */
 
@@ -15,7 +30,7 @@ body {
   width: 300px;
   margin: 0 auto;
   margin-top: 40px;
-  background: rgba(255, 255, 255, 0.50);
+  background: rgba(255, 255, 255, 0.95);
   font-size: 20px;
   border-radius: 5px;}
 }
@@ -25,27 +40,28 @@ display: inline-block;
 }
 
 input, select, textarea {
-font-size: 100%;
+font-size: 80%;
+border-radius: 6px;
 padding: 4px 15px 4px 5px;
 width: 100%;
 }
 
 #button{
 display: inline-block;
-background-color:#ee719e;
-color:#ffffff;
+background-color: #cb8e53;
+color: #ffffff;
 border-radius: 5px;
-text-align:center;
-margin-top:2px;
+text-align: center;
+margin-top: 2px;
 padding: 5px 15px;
 }
 
 #button:hover{
 cursor: pointer;
 opacity: .8;
-ol {padding-left: 20px;}
-ol li {padding: 5px;color:#000000;}
-ol li:nth-child(even){background: #dfdfdf;}
+ul {padding-left: 20px;}
+ul li {padding: 5px; color:#cb8e53;}
+ul li:nth-child(even){background: #ffffff;}
 .strike{text-decoration: line-through;}
 }
 
@@ -61,8 +77,12 @@ li > crossOutButton {
 	background: none;
 	border: none;
 	float: right;
-	color: #ee719e;
+	color: #000000;
 	font-weight: 800;
+}
+
+ul {
+line-height:150%
 }
 
 
@@ -76,9 +96,20 @@ li > crossOutButton {
 }
 
 #app h1 {
-  font-size: 5em;
+  font-size: 4em;
   text-align: center;
   line-height: 1em;
+  color: #cb8e53;
+  text-shadow:
+    /* Outline */
+    -1px -1px 0 #ffffff,
+    1px -1px 0 #ffffff,
+    -1px 1px 0 #ffffff,
+    1px 1px 0 #ffffff,  
+    -2px 0 0 #ffffff,
+    2px 0 0 #ffffff,
+    0 2px 0 #ffffff,
+    0 -2px 0 #ffffff;   
 }
 
 #app h4 {
@@ -90,4 +121,6 @@ li > crossOutButton {
 
 #app button {
   margin-bottom: 7px;
+  background-color: #cb8e53;
+  border-radius: 12px;
 }
