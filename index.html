@@ -1,55 +1,103 @@
 <!DOCTYPE html>
 <html>
-  <head>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>PrioKitty</title>
-    <link href="https://cdnjs.cloudflare.com/ajax/libs/bulma/0.7.5/css/bulma.css" rel="stylesheet" type="text/css" />
-    <link href="style.css" rel="stylesheet" type="text/css" />
-    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
-    <script defer src="https://use.fontawesome.com/releases/v5.3.1/js/all.js"></script>
-  </head>
-  <body>
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>PrioKitty</title>
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/bulma/0.7.5/css/bulma.css" rel="stylesheet" type="text/css" />
+  <link href="style.css" rel="stylesheet" type="text/css" />
+  <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+  <script defer src="https://use.fontawesome.com/releases/v5.3.1/js/all.js"></script>
+</head>
+
+<body>
+  <div class="frame">
+
+  <div class="title">
+    <h1>PrioKitty</h1>
+  </div>
+
+
+  <!-- Todo list -->
+  <div class="container">
+
+    <form name="toDoList">
+      <input type="text" name="ListItem" id="input">
+      <div onclick="newItem()" id="button">add</div>
+
+      <!-- play & purr buttons -->
+
+      <div style="float:right" id="button"><a href="facetime:user@example.com">call
+          buddy</a>
+      <br>
+      </div>
       
-    <div class="title">
-      <h1>PrioKitty</h1>
-    </div>
+      <div>
+        <audio id="sound1" src="purr.mp3"></audio>
+        <div style="float:left" onclick="sound1.play();" id="button">purr</div>
+        <audio id="music" src="https://streaming.exclusive.radio/er/kraftwerk/icecast.audio" type="application/x-scpls"></audio>
+        <div style="float:right" onclick="music.play();" id="button">electro</div>
+
+        <audio id="jazz" src="https://radio30.virtualtronics.com/proxy/abaco?mp=/stream" type="application/x-mpegurl"></audio>
+        <div style="float:right" onclick="jazz.play();" id="button">jazz</div>
+        <!-- http://schizoid.in/schizoid-dub.pls?icy=http -->
+
+      </div>
+    </form> 
+
+    <ol id="list"><br /></ol>
+
+  </div>
 
 
-    <!-- Todo list -->
-  	<div class="container">
 
-		  <form name="toDoList">
-			  <input type="text" name="ListItem" id="input"> 
-		  <div onclick="newItem()" id="button">add</div>
 
+
+  <center>
+
+    <div class="container">
+  
+      <!-- <font size="3" face="Verdana" color="white">
+      <h1>Cat API</h1> -->
       
-    <!-- play & purr buttons -->
-      <audio id="sound1" src="purr.mp3"></audio>      
-      <div style="float:right" onclick="sound1.play();" id="button">purr</div> 
-      
-      <audio id="music" src="http://schizoid.in/schizoid-dub.pls?icy=http"></audio>      
-      <div style="float:right" onclick="music.play();" id="button">play</div>
-        
-      </form>
-      
-		  <ul id="list"><br/></ul>
-
+      <!-- <div class="form-group">
+        <form class="search-form">    
+          <input type="text" id="search-query" class="form-control"></input>
+          <button class="btn btn-primary search">Search</button>
+        </form>
+      </div> -->
     
-    <!-- Pomodoro timer -->
-    <div id="app">
-      <h1>{{Math.floor(time_remaining / 60).toString().padStart(2, "0")}}:{{(time_remaining % 60).toString().padStart(2, "0")}}</h1>
-      <h4>{{(timer_state == 'work') ? '' : ''}}</h4>      
-      <button class="button is-rounded is-primary" v-on:click="timer('start')" :disabled="timer_running">Start</button>
-      <button class="button is-rounded" v-on:click="timer('skip')" :disabled="!timer_running || timer_paused">{{(timer_state == 'work') ? 'Start break 🚽' : 'Start Timer 📂'}}</button>
-      <button class="button is-rounded" v-on:click="timer('reset')" :disabled="!timer_running">Reset</button>
+      <!-- <button id="new-cat-btn">New Random Cat</button><br> -->
+  
+      <div id="img-box">
+        <img id="cat-image"><br>
+      </div>
+    
+      <div id="info-text"></div>
+  
     </div>
-      
-    <script src="script.js"></script>
-    &nbsp;
-    &nbsp;
-    &nbsp;
-      
-    </div>       
-  </body>
+  
+  </center>
+
+
+
+  <!-- Pomodoro timer -->
+  <div class="container" id="app">
+    <h1>{{Math.floor(time_remaining / 60).toString().padStart(2, "0")}}:{{(time_remaining %
+      60).toString().padStart(2,"0")}}</h1>
+    <h4>{{(timer_state == 'work') ? '' : ''}}</h4>
+    <button class="button is-rounded is-primary" v-on:click="timer('start')" :disabled="timer_running">Start</button>
+    <button class="button is-rounded" v-on:click="timer('skip')" :disabled="!timer_running || timer_paused">
+      {{(timer_state == 'work') ? 'Start break' : 'Start Timer 📂'}}</button>
+    <button class="button is-rounded" v-on:click="timer('reset')" :disabled="!timer_running">Reset</button>
+  </div>
+
+  <script src="script.js"></script>
+  <script src="fetch.js"></script>
+
+</div>
+
+</body>
+
 </html>

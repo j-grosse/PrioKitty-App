@@ -1,90 +1,128 @@
+html {
+  height: 100%;
+  background-image: url('cute-cat-pattern.jpg');
+}
 body {
-  font: normal normal 18px/16px "Open Sans", sans-serif;
+  font: normal normal 18px/16px 'Open Sans', sans-serif;
   background-color: #ffffff;
   background-repeat: repeat;
-  background-position: center center;
-  background-image: url("https://thumbs.dreamstime.com/b/cute-cat-pattern-seamless-cartoon-cats-different-breeds-colors-65614264.jpg"); 
+  min-height: 100%;
+  background: transparent;
 }
 
-.title{
+.title {
+  margin-top: 50px;
   font-size: 3em;
   text-align: center;
   line-height: 1em;
   color: #cb8e53;
   text-shadow:
-    /* Outline */
-    -1px -1px 0 #ffffff,
-    1px -1px 0 #ffffff,
-    -1px 1px 0 #ffffff,
-    1px 1px 0 #ffffff,  
-    -2px 0 0 #ffffff,
-    2px 0 0 #ffffff,
-    0 2px 0 #ffffff,
-    0 -2px 0 #ffffff;   
+    /* Outline */ -1px -1px 0 #ffffff, 1px -1px 0 #ffffff,
+    -1px 1px 0 #ffffff, 1px 1px 0 #ffffff, -2px 0 0 #ffffff, 2px 0 0 #ffffff,
+    0 2px 0 #ffffff, 0 -2px 0 #ffffff;
 }
 
-/* Todo list */
+.frame {
+  padding: 20px;
+  width: 400px;
+  margin: 0 auto;
+  margin-top: 40px;
+  background: rgba(255, 255, 255, 0.7);
+  font-size: 20px;
+  border-radius: 5px;
+}
 
-.container{
+.container {
   padding: 20px;
   width: 300px;
   margin: 0 auto;
   margin-top: 40px;
-  background: rgba(255, 255, 255, 0.95);
+  background: rgba(255, 255, 255, 0);
   font-size: 20px;
-  border-radius: 5px;}
+  border-radius: 5px;
 }
+
+/* Todo list */
 
 form {
-display: inline-block;
+  display: inline-block;
 }
 
-input, select, textarea {
-font-size: 80%;
-border-radius: 6px;
-padding: 4px 15px 4px 5px;
-width: 100%;
+input,
+select,
+textarea {
+  font-size: 80%;
+  border-radius: 6px;
+  padding: 4px 15px 4px 5px;
+  width: 100%;
 }
 
-#button{
-display: inline-block;
-background-color: #cb8e53;
-color: #ffffff;
-border-radius: 5px;
-text-align: center;
-margin-top: 2px;
-padding: 5px 15px;
+#button {
+  display: inline-block;
+  background-color: #cb8e53;
+  color: #ffffff;
+  border-radius: 5px;
+  text-align: center;
+  margin-top: 2px;
+  padding: 5px 15px;
 }
 
-#button:hover{
-cursor: pointer;
-opacity: .8;
-ul {padding-left: 20px;}
-ul li {padding: 5px; color:#cb8e53;}
-ul li:nth-child(even){background: #ffffff;}
-.strike{text-decoration: line-through;}
+#button:hover {
+  cursor: pointer;
+  opacity: 0.8;
+  ul {
+    padding-left: 20px;
+  }
+  ul li {
+    padding: 5px;
+    color: #cb8e53;
+  }
+  ul li:nth-child(even) {
+    background-color: #ffffff;
+  }
+  .strike {
+    text-decoration: line-through;
+  }
 }
 
-li:hover{
+li:hover {
   cursor: pointer;
 }
 
 .delete {
-	display: none;
+  display: none;
 }
 
 li > crossOutButton {
-	background: none;
-	border: none;
-	float: right;
-	color: #000000;
-	font-weight: 800;
+  background: none;
+  border: none;
+  float: right;
+  color: #000000;
+  font-weight: 800;
 }
 
 ul {
-line-height:150%
+  line-height: 150%;
 }
 
+/* Cat API */
+
+#new-cat-btn {
+  margin-top: 40px;
+}
+#img-box {
+  margin-top: 20px;
+  border: white 1px solid;
+}
+
+/* #info-text {
+  margin-top: 20px;
+  max-width: 30%;
+  display: flexbox;
+  column-count: 3;
+  justify-content: center;
+  align-items: center;
+} */
 
 /* Pomodoro timer */
 
@@ -101,15 +139,9 @@ line-height:150%
   line-height: 1em;
   color: #cb8e53;
   text-shadow:
-    /* Outline */
-    -1px -1px 0 #ffffff,
-    1px -1px 0 #ffffff,
-    -1px 1px 0 #ffffff,
-    1px 1px 0 #ffffff,  
-    -2px 0 0 #ffffff,
-    2px 0 0 #ffffff,
-    0 2px 0 #ffffff,
-    0 -2px 0 #ffffff;   
+    /* Outline */ -1px -1px 0 #ffffff, 1px -1px 0 #ffffff,
+    -1px 1px 0 #ffffff, 1px 1px 0 #ffffff, -2px 0 0 #ffffff, 2px 0 0 #ffffff,
+    0 2px 0 #ffffff, 0 -2px 0 #ffffff;
 }
 
 #app h4 {
