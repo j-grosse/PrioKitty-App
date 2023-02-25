@@ -1,7 +1,7 @@
 {
   "name": "PrioKitty App",
   "short_name": "PrioKitty",
-  "start_url": "PrioKitty-App",
+  "start_url": "/?source=pwa",
   "icons": [
     {
       "src": "logo.png",
