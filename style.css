@@ -11,7 +11,7 @@ body {
 }
 
 .title {
-  margin-top: 50px;
+  margin-top: 20px;
   font-size: 3em;
   text-align: center;
   line-height: 1em;
@@ -110,9 +110,12 @@ ul {
 #new-cat-btn {
   margin-top: 40px;
 }
-#img-box {
+
+.img-box img {
   margin-top: 20px;
-  border: white 1px solid;
+  border: white 2px solid;
+  border-radius: 5px;
+  overflow: hidden;
 }
 
 /* #info-text {
