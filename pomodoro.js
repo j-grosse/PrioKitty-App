@@ -44,6 +44,9 @@ var app = new Vue({
             this.time_remaining--;
           } else {
             //timer ran out
+            
+            getImage() // get image as a reward for the task
+
             this.skip()
             
           }

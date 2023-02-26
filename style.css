@@ -24,7 +24,7 @@ body {
 
 .frame {
   padding: 20px;
-  width: 400px;
+  width: 300px;
   margin: 0 auto;
   margin-top: 40px;
   background: rgba(255, 255, 255, 0.7);
@@ -34,7 +34,7 @@ body {
 
 .container {
   padding: 20px;
-  width: 300px;
+  width: 250px;
   margin: 0 auto;
   margin-top: 40px;
   background: rgba(255, 255, 255, 0);
@@ -112,7 +112,7 @@ ul {
 }
 
 .img-box img {
-  margin-top: 20px;
+  /* margin-top: 20px; */
   border: white 2px solid;
   border-radius: 5px;
   overflow: hidden;

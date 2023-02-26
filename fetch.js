@@ -1,53 +1,58 @@
-function fetchImage() {
-    let image = document.getElementById('cat-image');
-    fetch('https://api.thecatapi.com/v1/images/search')
-      .then((resp) => resp.json())
-      .then((json) => (image.src = json[0].url));
+// function enterTask() {
+//   // let task = "Antrag%20abgeschickt";
+
+//   let task = prompt('Please enter your task:', 'Antrag abgeschickt');
+//   if (task == null || task == '') {
+//     prompt('Please enter your task:', 'Antrag abgeschickt');
+//   }
+//   document.getElementById('task').innerHTML = task;
+
+//   let task_nospace = task.replace(' ', '%20');
+//   let url = `https://cataas.com/cat/says/${task_nospace}`;
+//   let img_tag = '<img src=' + url + '%20&#8730' + ' />';
+
+//   document.getElementById('cat-image').innerHTML = img_tag;
+// }
+
+var GLOBALVAR = (function () {
+  // let task = "Antrag%20abgeschickt";
+
+  
+  let task = prompt('Please enter your task:', 'Antrag abgeschickt');
+  if (task == null || task == '') {
+    prompt('Please enter your task:', 'Antrag abgeschickt');
   }
+
+  document.getElementById('task').innerHTML = task;
+
+  let task_nospace = task.replace(' ', '%20');
+  let url = `https://cataas.com/cat/says/${task_nospace}`;
+  let img_tag = '<img src=' + url + '%20&#8730' + ' />';
+
+  return {
+    getImage: function () {
+      document.getElementById('cat-image').innerHTML = img_tag;
+    },
+  };
+})();
+
+
   
-//   function fetchInfo() {
-//     fetch('https://catfact.ninja/facts')
-//     // fetch('https://api.thecatapi.com/v1/images/search')
+
+
+// function fetchTextImage() {
+//   let text = 'hi';
+//   let gif = document.getElementById('cat-image2');
+//   fetch(`https://cataas.com/cat/says/${text}`)
 //     .then((resp) => resp.json())
-//       .then((json) => renderInfo(json.data));
-//   }
-  
-//   function renderInfo(facts){
-//     let infoText = document.getElementById("info-text")
-//     facts.map(fact => {
-//       const p = document.createElement('p')
-//       p.setAttribute("id", "actual-fact")
-//       fetchImage.json
-//       p.innerHTML = fact.fact
-//       infoText.appendChild(p)
-//     })
-//   }
-  
-//   function btnClick() {
-//     let button = document.getElementById('new-cat-btn');
-//     button.addEventListener('click', fetchImage);
-//   }
-  
-  document.addEventListener('DOMContentLoaded', () => {
-    fetchImage();
-    // fetchInfo();
-    // btnClick();
-  });
-  
-  //   if (res.ok) {
-  //     console.log('SUCCESS');
-  //   } else {
-  //     console.log('Not Successful');
-  //   }
-  // })
-  // .then((data) => console.log(data))
-  // .catch((error) => console.log('ERROR'));
-  
-  // };
-  
-  // "https://swapi.dev/api/" + searchCategory + "/?search=" + searchQuery;
-  // 'https://open.nrw/api/3/action/package_search?facet.field==["vornamen"]';
-  // 'https://open.nrw/api/3/action/package_search?facet.field=[\"' +
-  // searchQuery +
-  // '\"]';
-  // https://open.nrw/api/3/action/package_search?facet.field=%20[%22vornamen%22]
+//     .then((json) => (image.src = 'https://cataas.com/cat/gif'));
+// }
+
+/*
+function fetchImage() {
+  let image = document.getElementById('cat-image');
+  fetch('https://api.thecatapi.com/v1/images/search')
+    .then((resp) => resp.json())
+    .then((json) => (image.src = json[0].url));
+}
+*/
