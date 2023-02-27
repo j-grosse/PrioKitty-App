@@ -35,7 +35,7 @@ function newItem() {
     let task_nospace = inputValue.replace(' ', '%20');
     let url = `https://cataas.com/cat/says/${task_nospace}`;
     let img_tag = '<img id="cat" src=' + url + '%20&#8730' + ' />';
-    document.getElementById('cat-image').innerHTML = img_tag;
+    // document.getElementById('cat-image').innerHTML = img_tag;
     app.timer('start');
     // document.getElementById('cat').style.visibility='visible';
   }
