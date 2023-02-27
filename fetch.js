@@ -1,44 +1,38 @@
-// function enterTask() {
-//   // let task = "Antrag%20abgeschickt";
+// var GLOBALVAR = (function () {
+  // let task = prompt('Please enter your task:', 'Antrag abgeschickt');
+  // if (task == null || task == '') {
+  //   prompt('Please enter your task:', 'Antrag abgeschickt');
+  // }
 
-//   let task = prompt('Please enter your task:', 'Antrag abgeschickt');
-//   if (task == null || task == '') {
-//     prompt('Please enter your task:', 'Antrag abgeschickt');
-//   }
-//   document.getElementById('task').innerHTML = task;
+  // document.getElementById('task').innerHTML = task;
 
 //   let task_nospace = task.replace(' ', '%20');
 //   let url = `https://cataas.com/cat/says/${task_nospace}`;
 //   let img_tag = '<img src=' + url + '%20&#8730' + ' />';
 
-//   document.getElementById('cat-image').innerHTML = img_tag;
-// }
+//   return {
+//     getImage: function () {
+//       document.getElementById('cat-image').innerHTML = img_tag;
+//     },
 
-var GLOBALVAR = (function () {
-  // let task = "Antrag%20abgeschickt";
+//     popup: function () {
+//       let popuptags = `<div id="modal-bis" class="modal is-active">
+//       <div class="modal-background"></div>
+//       <div class="modal-content">
+//         <p id="cat-image">
+//         </p>
+//       </div>
+//       <button class="modal-close is-large" aria-label="close"></button>
+//     </div>`;
 
-  
-  let task = prompt('Please enter your task:', 'Antrag abgeschickt');
-  if (task == null || task == '') {
-    prompt('Please enter your task:', 'Antrag abgeschickt');
-  }
+//       document.getElementById('popup').innerHTML = popuptags;
+//     },
 
-  document.getElementById('task').innerHTML = task;
-
-  let task_nospace = task.replace(' ', '%20');
-  let url = `https://cataas.com/cat/says/${task_nospace}`;
-  let img_tag = '<img src=' + url + '%20&#8730' + ' />';
-
-  return {
-    getImage: function () {
-      document.getElementById('cat-image').innerHTML = img_tag;
-    },
-  };
-})();
-
-
-  
-
+//     getImage2: function () {
+//       document.getElementById('cat-image2').innerHTML = img_tag;
+//     },
+//   };
+// })();
 
 // function fetchTextImage() {
 //   let text = 'hi';
@@ -47,6 +41,8 @@ var GLOBALVAR = (function () {
 //     .then((resp) => resp.json())
 //     .then((json) => (image.src = 'https://cataas.com/cat/gif'));
 // }
+
+
 
 /*
 function fetchImage() {
