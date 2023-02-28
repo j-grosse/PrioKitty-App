@@ -11,7 +11,6 @@ body {
 }
 
 .title {
-  /* margin-top: 20px; */
   font-size: 3em;
   text-align: center;
   line-height: 1em;
@@ -20,23 +19,24 @@ body {
     /* Outline */ -1px -1px 0 #ffffff, 1px -1px 0 #ffffff,
     -1px 1px 0 #ffffff, 1px 1px 0 #ffffff, -2px 0 0 #ffffff, 2px 0 0 #ffffff,
     0 2px 0 #ffffff, 0 -2px 0 #ffffff;
+
 }
 
 .frame {
+  /* margin-top: 40px; */
   padding: 20px;
   width: 300px;
   margin: 0 auto;
-  margin-top: 40px;
   background: rgba(255, 255, 255, 0.7);
   font-size: 20px;
   border-radius: 5px;
 }
 
 .container {
-  padding: 20px;
+  padding: 10px;
   width: 250px;
   margin: 0 auto;
-  margin-top: 40px;
+  margin-top: 10px;
   background: rgba(255, 255, 255, 0);
   font-size: 20px;
   border-radius: 5px;
@@ -54,7 +54,7 @@ textarea {
   font-size: 80%;
   border-radius: 6px;
   padding: 4px 15px 4px 5px;
-  width: 100%;
+  width: 70%;
 }
 
 #button {
@@ -64,7 +64,8 @@ textarea {
   border-radius: 5px;
   text-align: center;
   margin-top: 2px;
-  padding: 5px 15px;
+  padding: 5px 15px 5px 15px;
+  font-size: 16px;
 }
 
 #button:hover {
@@ -86,7 +87,7 @@ textarea {
 }
 
 li {
-  line-height: 1em;
+  line-height: 1.5em;
 }
 
 li:hover {
@@ -113,10 +114,6 @@ ul {
 
 /* Cat API */
 
-#new-cat-btn {
-  margin-top: 40px;
-}
-
 .img-box img {
   /* margin-top: 20px; */
   border: white 2px solid;
@@ -124,14 +121,6 @@ ul {
   overflow: hidden;
 }
 
-/* #info-text {
-  margin-top: 20px;
-  max-width: 30%;
-  display: flexbox;
-  column-count: 3;
-  justify-content: center;
-  align-items: center;
-} */
 
 /* Pomodoro timer */
 

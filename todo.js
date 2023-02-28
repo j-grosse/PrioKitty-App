@@ -1,11 +1,26 @@
 // Todo list
 
+    // accept <Enter> key
+    addEventListener('keypress', function (event) {
+      if (event.key === 'Enter') {
+        event.preventDefault();
+        newItem();
+      }
+    });
+
 function newItem() {
   //1. Adding a new item to the list of items:
+
   let li = document.createElement('li');
   let inputValue = document.getElementById('input').value;
   let text = document.createTextNode(inputValue);
-  li.appendChild(text);
+
+  let btn = document.createElement('div');
+  btn.id = 'button';
+  btn.style = 'background-color: hsl(30, 54%, 48%); padding: 0px 8px;';
+
+  btn.appendChild(text);
+  li.appendChild(btn);
 
   if (inputValue === '') {
     // alert('You must write something!');
@@ -13,6 +28,8 @@ function newItem() {
     let list = document.querySelector('#list');
     list.appendChild(li);
 
+
+ 
     // list.addEventListener('keydown', (e) => {
     //   if (e.key === 13) {
     //     let text = document.createTextNode(inputValue);
@@ -21,29 +38,18 @@ function newItem() {
     // });
   }
 
-  //2. Crossing out an item from the list of items:
-  function crossOut() {
-    li.classList.toggle('strike');
-  }
+  //2. onclick add task as goal & start timer function 'task'
+  function selectTask() {
+    let ptag = `<p id="taskText">${inputValue}</p>`;
+    document.getElementById('taskText').innerHTML = ptag;
 
-  li.addEventListener('click', add_start_text);
-
-  function add_start_text() {
-    let ptag = `<p>${inputValue}</p>`;
-    document.getElementById('task').innerHTML = ptag;
-
-    let task_nospace = inputValue.replace(' ', '%20');
-    let url = `https://cataas.com/cat/says/${task_nospace}`;
-    let img_tag = '<img id="cat" src=' + url + '%20&#8730' + ' />';
-    // document.getElementById('cat-image').innerHTML = img_tag;
     app.timer('start');
-    // document.getElementById('cat').style.visibility='visible';
   }
-  //  li.addEventListener("dblclick",crossOut);
+  btn.addEventListener('click', selectTask);
 
   //3(i). Adding the delete button "X":
   let crossOutButton = document.createElement('crossOutButton');
-  crossOutButton.appendChild(document.createTextNode('🐈  X'));
+  crossOutButton.appendChild(document.createTextNode('x'));
   li.appendChild(crossOutButton);
 
   crossOutButton.addEventListener('click', deleteListItem);
@@ -51,6 +57,13 @@ function newItem() {
   function deleteListItem() {
     li.classList.add('delete');
   }
-  // // 4. Reordering the items:
+
+  //3(iii). Crossing out an item from the list of items:
+  // function crossOut() {
+  //   li.classList.toggle('strike');
+  // }
+  //  li.addEventListener("dblclick",crossOut);
+
+  // 4. Reordering the items:
   // $('#list').sortable();
 }
