@@ -29,14 +29,14 @@
 //     },
 
 //     getImage2: function () {
-//       document.getElementById('cat-image2').innerHTML = img_tag;
+//       document.getElementById('cat-image').innerHTML = img_tag;
 //     },
 //   };
 // })();
 
 // function fetchTextImage() {
 //   let text = 'hi';
-//   let gif = document.getElementById('cat-image2');
+//   let gif = document.getElementById('cat-image');
 //   fetch(`https://cataas.com/cat/says/${text}`)
 //     .then((resp) => resp.json())
 //     .then((json) => (image.src = 'https://cataas.com/cat/gif'));

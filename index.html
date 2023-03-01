@@ -2,7 +2,16 @@
 <html>
   <head>
     <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="viewport" content="width=device-width; initial-scale=1; viewport-fit=cover" />
+    <meta name="mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+
+    <!-- possible content values: default, black or black-translucent -->
+    <meta name="apple-mobile-web-app-status-bar-style"
+    content="black-translucent">
+    <!-- Chrome, Firefox OS and Opera --> 
+<meta name="theme-color" content="#000000">
+
     <title>PrioKitty &#10004</title>
     <link rel="icon" type="image/x-icon" href="favicon.png" />
     <link rel="manifest" href="manifest.json" />
@@ -20,6 +29,7 @@
   </head>
 
   <body>
+
     <div class="frame">
       <div class="title">
         <h1>PrioKitty</h1>
@@ -29,8 +39,8 @@
       <!-- Todo list -->
       <div class="container">
         <form name="toDoList" onSubmit="return false;">
-          <input type="text" name="ListItem" id="input" />
-          <div onclick="newItem()" id="button" id="enter">add</div>
+          <input type="text" name="ListItem" id="input"/>
+          <!-- <div onclick="newItem()" id="button">add</div> -->
           
           <!-- play & purr buttons -->
 
@@ -41,53 +51,69 @@
 
           <div>
             <br>
+
+            <audio
+            loop 
+            id="meow" 
+            preload="none" 
+            src="shari_meow.mp3" 
+            type="audio/mpeg">
+            </audio>
+
+            <div style="float: auto" onclick="togglePlay(dub);" id="button">
+              dub
             <audio
               id="dub"
               src="	http://94.130.113.214:8000/dubtechno"
               type="application/x-mpegurl">
             </audio>
-            <!-- <audio
-              id="dub"
-              src="https://streaming.exclusive.radio/er/petshopboys/icecast.audio"
-              type="application/x-scpls">
-            </audio> -->
-            <div style="float: auto" onclick="dub.play();" id="button">
-              electro
             </div>
 
+            <div style="float: auto" onclick="togglePlay(jazz);" id="button">
+              jazz
             <audio
               id="jazz"
+              preload="none" 
               src="https://radio30.virtualtronics.com/proxy/abaco?mp=/stream"
               type="application/x-mpegurl">
             </audio>
-            <div style="float: auto" onclick="jazz.play();" id="button">
-              jazz
             </div>
 
+            <div style="float: auto" onclick="togglePlay(space);" id="button">
+              space
             <audio
-            id="purr" src="purr.mp3">
+              id="space"
+              preload="none" 
+              src="https://radio.stereoscenic.com/asp-s" type="audio/mpeg">
             </audio>
-            <div style="float: auto" onclick="purr.play();" id="button">
-              purr
             </div>
-            <!-- http://schizoid.in/schizoid-dub.pls?icy=http -->
+
+            <div style="float: auto" onclick="togglePlay(purr);" id="button">
+              purr
+            <audio
+            id="purr" 
+            preload="none" 
+            src="purr.mp3">
+            </audio>
+            </div>
+
+          </div>
+
+          <ul id="list">
+          <br />
+          </ul>
+          <br />
+
+          <div class="container" id="button" style="opacity: 1">
+            <br>
+            <p>
+              <b>Task text for reward image</b>
+            </p>
+            <br>
+            <div id="taskText"></div>
+            <br>
           </div>
         </form>
-
-        <ul id="list">
-        <br />
-        </ul>
-        <br />
-
-        <div class="container" id="button">
-          <br>
-          <p>
-            <b>Current Task</b>
-          </p>
-          <br>
-          <div id="taskText"></div>
-          <br>
-        </div>
 
       </div>
 
@@ -105,16 +131,16 @@
           v-on:click="timer('start')"
           :disabled="timer_running"
         >
-        Start Timer
+        Start
         </button>
 
-        <button
+        <!-- <button
           class="button is-rounded"
           v-on:click="timer('skip')"
           :disabled="!timer_running || timer_paused"
         >
-          {{(timer_state == 'work') ? 'Start Break' : 'Start Timer'}}
-        </button>
+           {{(timer_state == 'work') ? 'Start Break' : 'Start Timer'}}
+        </button> -->
 
         <button
           class="button is-rounded"
@@ -127,42 +153,35 @@
     
 
 
-    <div class="container">
-      <div class="img-box">
-        <img src="pusheen.png" />
-        <div id="cat-image">
-
-        <!-- <div id="app" >
-          <span  >{{ message }}</span>
-
-      </div> -->
-
-      
-        <!-- <input ref="input"> -->
-
-        <!-- <div class="hello"></div>
-        <div id="hello1"></div>
-          <div id="vue">
-          </div>
-          <div v-html="helloElement"></div>
-        </div> -->
-
-
-        <div id="cat-image2"></div>
+    
+    
+      <div class="container" id="button" style="opacity: 1;">
+        <div id="badges">
+        <br>
+        <p>
+          <b>Badges this week</b>
+        </p><br>
+        <p style="text-align: left">
+        🐈 🐈 🐈 🐈 🐈 🐈 🐈 🐈<br><br>
+        🍅 🍅 🍅 🍅 🍅<br>
+        </p>
+        :)
+        </div>
       </div>
-    </div>
 
-  </div>
+      <div class="container" class="img-box" id="cat-image">
+      </div>
+
+    </div> <!-- end of frame -->
+
 
     
-  <div id="popup_window">
-
-    <div id="image-modal" class="modal">
+    <div id="popup_window">
+      <div id="image-modal" class="modal">
         <div id="app">
-
         <div class="modal-background"></div>
         <div class="modal-content">
-         <div class="modal-card">
+        <div class="modal-card">
         <!-- <header class="modal-card-head">
           <p class="modal-card-title">Modal title</p>
         </header> -->
@@ -173,16 +192,16 @@
           <button class="button is-success">Save changes</button>
           <button class="button">Cancel</button>
         </footer> -->
-      </div>
         </div>
-        <button id="image-modal-close" class="modal-close"></button>
+        </div>
+        <button id="image-modal-close" class="modal-close">
+        </button>
+        </div>
       </div>
-      <br>
-      <div id="showModal"></div>
-        <!-- <button class="button" id="showModal">Show</button> -->
+      <!-- <div id="showModal"></div> -->
+      <!-- <button class="button" id="showModal">Show</button> -->
     </div>
 
-  </div>
 
       <script>
         if ('serviceWorker' in navigator) {

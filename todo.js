@@ -1,15 +1,23 @@
 // Todo list
 
-    // accept <Enter> key
-    addEventListener('keypress', function (event) {
-      if (event.key === 'Enter') {
-        event.preventDefault();
-        newItem();
-      }
-    });
+document.getElementById('input').value="";
+document.getElementById('input').focus();
+
+// accept <Enter> key
+addEventListener('keypress', function (event) {
+  if (event.key === 'Enter') {
+    event.preventDefault();
+    newItem();
+  }
+});
 
 function newItem() {
-  //1. Adding a new item to the list of items:
+  // Adding a new item to the list of items:
+  
+  // document.getElementById("button").onclick = function(e) {
+  //   document.getElementById("input").value = "";
+  // };
+  document.getElementById('input').select();
 
   let li = document.createElement('li');
   let inputValue = document.getElementById('input').value;
@@ -28,35 +36,38 @@ function newItem() {
     let list = document.querySelector('#list');
     list.appendChild(li);
 
+    selectTask();
+  };
 
- 
-    // list.addEventListener('keydown', (e) => {
-    //   if (e.key === 13) {
-    //     let text = document.createTextNode(inputValue);
-    //     list.appendChild(li);
-    //   }
-    // });
-  }
-
-  //2. onclick add task as goal & start timer function 'task'
+  //onclick add task as goal & start timer function 'task'
   function selectTask() {
     let ptag = `<p id="taskText">${inputValue}</p>`;
     document.getElementById('taskText').innerHTML = ptag;
-
     app.timer('start');
-  }
-  btn.addEventListener('click', selectTask);
+  };
 
+  // click selects task, doubleclick deletes task
+  btn.onclick = (event) => {
+    if (event.detail === 2) {
+      deleteListItem();
+    } else if (event.detail === 1) {
+      selectTask();
+    }
+    document.getElementById('input').focus();
+  };
+
+/*
   //3(i). Adding the delete button "X":
   let crossOutButton = document.createElement('crossOutButton');
-  crossOutButton.appendChild(document.createTextNode('x'));
+  crossOutButton.appendChild(document.createTextNode('🗑️'));
   li.appendChild(crossOutButton);
-
+*/
   crossOutButton.addEventListener('click', deleteListItem);
   //3(ii). Adding CLASS DELETE (DISPLAY: NONE) from the css:
   function deleteListItem() {
     li.classList.add('delete');
-  }
+  };
+};
 
   //3(iii). Crossing out an item from the list of items:
   // function crossOut() {
@@ -66,4 +77,3 @@ function newItem() {
 
   // 4. Reordering the items:
   // $('#list').sortable();
-}

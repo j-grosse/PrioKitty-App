@@ -4,10 +4,18 @@ html {
 }
 body {
   font: normal normal 18px/16px 'Open Sans', sans-serif;
-  background-color: #ffffff;
+  background-color: #000000;
   background-repeat: repeat;
   min-height: 100%;
   background: transparent;
+}
+
+.element {
+  height: env(safe-area-inset-top);
+  width: env(safe-area-inset-left);
+  margin: env(safe-area-inset-right);
+  // you can also use fallback values
+  padding: env(safe-area-inset-bottom, 20px);
 }
 
 .title {
@@ -33,7 +41,6 @@ body {
 }
 
 .container {
-  padding: 10px;
   width: 250px;
   margin: 0 auto;
   margin-top: 10px;
@@ -54,7 +61,7 @@ textarea {
   font-size: 80%;
   border-radius: 6px;
   padding: 4px 15px 4px 5px;
-  width: 70%;
+  width: 100%;
 }
 
 #button {
@@ -110,9 +117,6 @@ ul {
   line-height: 150%;
 }
 
-
-
-/* Cat API */
 
 .img-box img {
   /* margin-top: 20px; */
