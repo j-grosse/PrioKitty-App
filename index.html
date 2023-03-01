@@ -2,15 +2,16 @@
 <html>
   <head>
     <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width; initial-scale=1; viewport-fit=cover" />
+    <meta name="viewport" content="width=device-width; initial-scale=1;" />
     <meta name="mobile-web-app-capable" content="yes">
     <meta name="apple-mobile-web-app-capable" content="yes">
 
     <!-- possible content values: default, black or black-translucent -->
     <meta name="apple-mobile-web-app-status-bar-style"
-    content="black-translucent">
+    content="black">
     <!-- Chrome, Firefox OS and Opera --> 
-<meta name="theme-color" content="#000000">
+    <meta name="theme-color" content="#000000">
+    <meta http-equiv="ScreenOrientation" content="autoRotate: disabled">
 
     <title>PrioKitty &#10004</title>
     <link rel="icon" type="image/x-icon" href="favicon.png" />
@@ -38,67 +39,18 @@
 
       <!-- Todo list -->
       <div class="container">
+        
         <form name="toDoList" onSubmit="return false;">
-          <input type="text" name="ListItem" id="input"/>
+
+          <input type="text" name="ListItem" onclick="select()" id="input"/>
           <!-- <div onclick="newItem()" id="button">add</div> -->
           
-          <!-- play & purr buttons -->
-
+          <!-- enter biuddy facetime mail address in preferences for facetime button -->
           <!-- <div style="float: right" id="button">
             <a href="facetime:user@example.com">call buddy</a>
             <br />
           </div> -->
-
-          <div>
-            <br>
-
-            <audio
-            loop 
-            id="meow" 
-            preload="none" 
-            src="shari_meow.mp3" 
-            type="audio/mpeg">
-            </audio>
-
-            <div style="float: auto" onclick="togglePlay(dub);" id="button">
-              dub
-            <audio
-              id="dub"
-              src="	http://94.130.113.214:8000/dubtechno"
-              type="application/x-mpegurl">
-            </audio>
-            </div>
-
-            <div style="float: auto" onclick="togglePlay(jazz);" id="button">
-              jazz
-            <audio
-              id="jazz"
-              preload="none" 
-              src="https://radio30.virtualtronics.com/proxy/abaco?mp=/stream"
-              type="application/x-mpegurl">
-            </audio>
-            </div>
-
-            <div style="float: auto" onclick="togglePlay(space);" id="button">
-              space
-            <audio
-              id="space"
-              preload="none" 
-              src="https://radio.stereoscenic.com/asp-s" type="audio/mpeg">
-            </audio>
-            </div>
-
-            <div style="float: auto" onclick="togglePlay(purr);" id="button">
-              purr
-            <audio
-            id="purr" 
-            preload="none" 
-            src="purr.mp3">
-            </audio>
-            </div>
-
-          </div>
-
+          
           <ul id="list">
           <br />
           </ul>
@@ -107,15 +59,17 @@
           <div class="container" id="button" style="opacity: 1">
             <br>
             <p>
-              <b>Task text for reward image</b>
+              <b>reward image text</b>
             </p>
             <br>
             <div id="taskText"></div>
             <br>
           </div>
+          
         </form>
 
       </div>
+
 
 
       <!-- Pomodoro timer -->
@@ -152,7 +106,56 @@
       </div>
     
 
+<!-- audio play buttons -->
+<div>
+  <br>
 
+  <audio
+  loop class="allAudio" id="meow" 
+  preload="none" 
+  src="shari_meow.mp3" 
+  type="audio/mpeg">
+  </audio>
+
+  <div style="float: auto" onclick="togglePlay(dub);" id="button">
+    dub
+  <audio
+    class="allAudio" id="dub"
+    src="	http://94.130.113.214:8000/dubtechno"
+    type="application/x-mpegurl">
+  </audio>
+  </div>
+
+  <div style="float: auto" onclick="togglePlay(jazz);" id="button">
+    jazz
+  <audio
+    class="allAudio" id="jazz"
+    preload="none" 
+    src="https://radio30.virtualtronics.com/proxy/abaco?mp=/stream"
+    type="audio/mpeg">
+  </audio>
+  </div>
+
+  <div style="float: auto" onclick="togglePlay(space);" id="button">
+    space
+  <audio
+    class="allAudio"
+    id="space"
+    preload="none" 
+    src="https://radio.stereoscenic.com/asp-s" type="audio/mpeg">
+  </audio>
+  </div>
+
+  <div style="float: auto" onclick="togglePlay(purr);" id="button">
+    purr
+  <audio
+  id="purr" 
+  preload="none" 
+  src="purr.mp3">
+  </audio>
+  </div>
+
+</div>
     
     
       <div class="container" id="button" style="opacity: 1;">
@@ -206,6 +209,7 @@
       <script>
         if ('serviceWorker' in navigator) {
           navigator.serviceWorker.register('/serviceWorker.js'); }
+          screen.orientation.lock(portrait);
       </script>
 
       <script src="todo.js"></script>

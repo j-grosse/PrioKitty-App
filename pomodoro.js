@@ -6,16 +6,13 @@ function popup() {
   let imageTag = '<img id="cat" src=' + url + '%20&#8730' + '?type=md />';
 
   document.getElementById('modal-card-body').innerHTML = imageTag;
-  // document.getElementById('cat-image').innerHTML = imageTag;
 
   // bulma modal
   // var btn = document.querySelector('#showModal');
   var modalDlg = document.querySelector('#image-modal');
   var imageModalCloseBtn = document.querySelector('#image-modal-close');
 
-  // btn.addEventListener('click', function () {
   modalDlg.classList.add('is-active');
-  // });
 
   imageModalCloseBtn.addEventListener('click', function () {
     modalDlg.classList.remove('is-active');
@@ -36,20 +33,20 @@ let pause_dur = 5; //0.05;
 let minute = 60;
 
 let vol = 0.5;
-var sound_meow = document.getElementById('meow');
-var sound_purr = document.getElementById('purr');
-// sound_purr.currentTime = 0;
-var sound_dub = document.getElementById('dub');
-sound_dub.volume = vol;
-var sound_jazz = document.getElementById('jazz');
-sound_jazz.volume = vol;
+var meow = document.getElementById('meow');
+var purr = document.getElementById('purr');
+// purr.currentTime = 0;
+var dub = document.getElementById('dub');
+dub.volume = vol;
+var jazz = document.getElementById('jazz');
+jazz.volume = vol;
 
 
-
+// function for audio buttons
 function togglePlay(genre) {
+  document.querySelectorAll('audio').forEach(el => el.pause());
   document.getElementById('input').focus();
   return genre.paused ? genre.play() : genre.pause();
-
 }
 
 var app = new Vue({
@@ -66,11 +63,11 @@ var app = new Vue({
       switch (action) {
         case 'start':
           // play & pause audio
-          sound_meow.pause();
+          meow.pause();
 
-          sound_dub.play();
+          dub.play();
 
-          sound_jazz.pause();
+          jazz.pause();
 
           if (!this.timer_running) {
             this.timer_id = setInterval(this.tick, 1000);
@@ -83,13 +80,13 @@ var app = new Vue({
           break;
 
         case 'reset':
-          sound_meow.play();
+          meow.play();
 
-          sound_dub.pause();
-          sound_dub.currentTime = 0;
+          dub.pause();
+          dub.currentTime = 0;
 
-          // sound_jazz.pause();
-          // sound_jazz.currentTime = 0;
+          // jazz.pause();
+          // jazz.currentTime = 0;
 
           clearInterval(this.timer_id);
           this.timer_id = null;
@@ -102,9 +99,9 @@ var app = new Vue({
         case 'skip':
           popup();
 
-          sound_jazz.play();
+          jazz.play();
 
-          sound_dub.pause();
+          dub.pause();
 
           if (this.timer_running && !this.timer_paused) {
             // this.skip();
