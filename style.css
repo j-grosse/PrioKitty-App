@@ -1,20 +1,25 @@
-@supports(padding:max(0px)) { // for iOS fullscreen
-  body, header, footer {
-      padding-left: min(0vmin, env(safe-area-inset-left));
-      padding-right: min(0vmin, env(safe-area-inset-right));
+@supports (padding: max(0px)) {
+  // for iOS fullscreen
+  body,
+  header,
+  footer {
+    padding-left: min(0vmin, env(safe-area-inset-left));
+    padding-right: min(0vmin, env(safe-area-inset-right));
   }
 }
 
 html {
+  touch-action: pan-y;
   height: 100%;
   background-image: url('cute-cat-pattern.jpg');
 }
 body {
-  font: normal normal 18px/16px 'Open Sans', sans-serif;
+  touch-action: pan-y;
+  min-height: 100%;
   background-color: #000000;
   background-repeat: repeat;
-  min-height: 100%;
   background: transparent;
+  font: normal normal 18px/16px 'Open Sans', sans-serif;
 }
 
 .element {
@@ -34,26 +39,25 @@ body {
     /* Outline */ -1px -1px 0 #ffffff, 1px -1px 0 #ffffff,
     -1px 1px 0 #ffffff, 1px 1px 0 #ffffff, -2px 0 0 #ffffff, 2px 0 0 #ffffff,
     0 2px 0 #ffffff, 0 -2px 0 #ffffff;
-
 }
 
 .frame {
   /* margin-top: 40px; */
   padding: 20px;
-  width: 300px;
+  width: 350px;
   margin: 0 auto;
   background: rgba(255, 255, 255, 0.7);
   font-size: 20px;
-  border-radius: 5px;
+  border-radius: 12px;
 }
 
 .container {
-  width: 250px;
+  width: 300px;
   margin: 0 auto;
   margin-top: 10px;
-  background: rgba(255, 255, 255, 0);
+  /* background: rgba(255, 255, 255, 0); */
   font-size: 20px;
-  border-radius: 5px;
+  border-radius: 12px;
 }
 
 /* Todo list */
@@ -75,7 +79,7 @@ textarea {
   display: inline-block;
   background-color: #cb8e53;
   color: #ffffff;
-  border-radius: 5px;
+  border-radius: 12px;
   text-align: center;
   margin-top: 2px;
   padding: 5px 15px 5px 15px;
@@ -124,21 +128,19 @@ ul {
   line-height: 150%;
 }
 
-
 .img-box img {
   /* margin-top: 20px; */
   border: white 2px solid;
-  border-radius: 5px;
+  border-radius: 12px;
   overflow: hidden;
 }
-
 
 /* Pomodoro timer */
 
 #app {
   display: flex;
   flex-direction: column;
-  max-width: 250px;
+  max-width: 200px;
   margin: 20px auto;
 }
 

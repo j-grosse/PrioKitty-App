@@ -1,40 +1,77 @@
 <!DOCTYPE html>
 <html>
-  <head>
-    <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width; initial-scale=1;" />
-    <meta name="mobile-web-app-capable" content="yes">
-    <meta name="apple-mobile-web-app-capable" content="yes">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+  <meta name="HandheldFriendly" content="true" />
+  
+  <meta name="mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-capable" content="yes">
 
-    <!-- possible content values: default, black or black-translucent -->
-    <meta name="apple-mobile-web-app-status-bar-style"
-    content="black">
-    <!-- Chrome, Firefox OS and Opera --> 
-    <meta name="theme-color" content="#000000">
-    <meta http-equiv="ScreenOrientation" content="autoRotate: disabled">
+  <!-- possible content values: default, black or black-translucent -->
+  <meta name="apple-mobile-web-app-status-bar-style"
+  content="black">
+  <!-- Chrome, Firefox OS and Opera --> 
+  <meta name="theme-color" content="#000000">
+  <meta http-equiv="ScreenOrientation" content="autoRotate: disabled">
 
-    <title>PrioKitty &#10004</title>
-    <link rel="icon" type="image/x-icon" href="favicon.png" />
-    <link rel="manifest" href="manifest.json" />
-    <link
-      href="https://cdnjs.cloudflare.com/ajax/libs/bulma/0.7.5/css/bulma.css"
-      rel="stylesheet"
-      type="text/css"
-    />
-    <link href="style.css" rel="stylesheet" type="text/css" />
-    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
-    <script
-      defer
-      src="https://use.fontawesome.com/releases/v5.3.1/js/all.js"
-    ></script>
-  </head>
+  <title>PrioKitty &#10004</title>
+  <link rel="icon" type="image/x-icon" href="favicon.png" />
+  <link rel="manifest" href="manifest.json" />
+  <link
+    href="https://cdnjs.cloudflare.com/ajax/libs/bulma/0.7.5/css/bulma.css"
+    rel="stylesheet"
+    type="text/css"
+  />
+  <link href="style.css" rel="stylesheet" type="text/css" />
 
-  <body>
+  <link href="./styles/prog-circle.css" rel="stylesheet" type="text/css" />
+  <!-- <script src=" https://cdn.jsdelivr.net/npm/jquery@3.6.3/dist/jquery.min.js "></script> -->
 
-    <div class="frame">
+  <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+    <!-- <script
+    defer
+    src="https://use.fontawesome.com/releases/v6.3.0/js/all.js"
+  ></script> -->
+</head>
+
+<body>
+
+  <div class="frame">
+    <div class="container">
+
       <div class="title">
         <h1>PrioKitty</h1>
       </div>
+
+      <!-- circular progress bar - showing day period
+      Google Charts https://google-developers.appspot.com/chart/
+      An original pen by https://codepen.io/ejsado/ Eric -->
+        <!-- <main>
+          <section>
+            <div class="pieID pie">
+              
+            </div>
+            <ul class="pieID legend">
+              <li hidden>
+                <em>morning</em>
+                <span>1</span>
+              </li>
+              <li hidden>
+                <em>noon</em>
+                <span>1</span>
+              </li>
+              <li hidden>
+                <em>afternoon</em>
+                <span>1</span>
+              </li>
+              <li hidden>
+                <em>evening</em>
+                <span>1</span>
+              </li>
+            </ul>
+          </section>
+        </main> -->
 
 
       <!-- Todo list -->
@@ -56,7 +93,7 @@
           </ul>
           <br />
 
-          <div class="container" id="button" style="opacity: 1">
+          <div class="container" id="button" style="opacity: 1; background-color: hsl(30, 54%, 47%); padding: 0px 8px;">
             <br>
             <p>
               <b>reward image text</b>
@@ -67,7 +104,6 @@
           </div>
           
         </form>
-
       </div>
 
 
@@ -93,7 +129,7 @@
           v-on:click="timer('skip')"
           :disabled="!timer_running || timer_paused"
         >
-           {{(timer_state == 'work') ? 'Start Break' : 'Start Timer'}}
+            {{(timer_state == 'work') ? 'Start Break' : 'Start Timer'}}
         </button> -->
 
         <button
@@ -105,117 +141,155 @@
         </button>
       </div>
     
+      <br>
 
-<!-- audio play buttons -->
-<div>
-  <br>
+      <!-- audio play buttons -->
+      <div>
 
-  <audio
-  loop class="allAudio" id="meow" 
-  preload="none" 
-  src="shari_meow.mp3" 
-  type="audio/mpeg">
-  </audio>
+        <audio
+        loop
+        id="meow" 
+        preload="none" 
+        src="shari_meow.mp3" 
+        type="audio/mpeg">
+        </audio>
 
-  <div style="float: auto" onclick="togglePlay(dub);" id="button">
-    dub
-  <audio
-    class="allAudio" id="dub"
-    src="	http://94.130.113.214:8000/dubtechno"
-    type="application/x-mpegurl">
-  </audio>
-  </div>
+        <div style="float: auto" onclick="togglePlay(jazz);" id="button">
+          jazz
+        <audio
+          id="jazz"
+          preload="none" 
+          src="https://radio30.virtualtronics.com/proxy/abaco?mp=/stream"
+          type="application/x-mpegurl">
+        </audio>
+        </div>
 
-  <div style="float: auto" onclick="togglePlay(jazz);" id="button">
-    jazz
-  <audio
-    class="allAudio" id="jazz"
-    preload="none" 
-    src="https://radio30.virtualtronics.com/proxy/abaco?mp=/stream"
-    type="audio/mpeg">
-  </audio>
-  </div>
+        <div style="float: auto" onclick="togglePlay(dub);" id="button">
+          dub
+        <audio
+          id="dub"
+          src="http://94.130.113.214:8000/dubtechno"
+          type="application/x-mpegurl">
+        </audio>
+        </div>
 
-  <div style="float: auto" onclick="togglePlay(space);" id="button">
-    space
-  <audio
-    class="allAudio"
-    id="space"
-    preload="none" 
-    src="https://radio.stereoscenic.com/asp-s" type="audio/mpeg">
-  </audio>
-  </div>
+        <div style="float: auto" onclick="togglePlay(dnb);" id="button">
+          dnb
+        <audio
+        id="dnb"
+        preload="none" 
+        src=" 
+        https://differentdrumz.radioca.st/stream%20" type="application/x-mpegurl">
+        </audio>
+        </div>
 
-  <div style="float: auto" onclick="togglePlay(purr);" id="button">
-    purr
-  <audio
-  id="purr" 
-  preload="none" 
-  src="purr.mp3">
-  </audio>
-  </div>
+        <div style="float: auto" onclick="togglePlay(liquid);" id="button">
+          liquid
+        <audio
+          id="liquid"
+          preload="none" 
+          src="http://79.111.119.111:8002/liquidfunk" type="application/x-mpegurl">
+        </audio>
+        </div>
 
-</div>
-    
+        <div style="float: auto" onclick="togglePlay(space);" id="button">
+          space
+        <audio
+          id="space"
+          preload="none" 
+          src="https://radio.stereoscenic.com/asp-s" type="audio/mpeg">
+        </audio>
+        </div>
+
+        <div style="float: auto" onclick="togglePlay(pads);" id="button">
+          pads
+          <!-- https://jutatakahashi.bandcamp.com/track/continua-shift -->
+        <audio
+          id="pads"
+          preload="none" 
+          src="https://t4.bcbits.com/stream/69be0f7a1b9f615598f76ec4fe109b1b/mp3-128/363907645?p=0&ts=1677840157&t=10f1085f114a5901da0b22c67612bb463b83600b&token=1677840157_494d21547b29f5ef8311fc9c2ac456588325f9a5
+          " type="audio/mpeg">
+        </audio>
+        </div>
+
+        <!-- <div style="float: auto" onclick="togglePlay(purr);" id="button">
+          purr
+        <audio
+        id="purr" 
+        preload="none" 
+        src="purr.mp3">
+        </audio>
+        </div> -->
+
+      </div>
+
+      <br>
     
       <div class="container" id="button" style="opacity: 1;">
         <div id="badges">
-        <br>
-        <p>
-          <b>Badges this week</b>
-        </p><br>
-        <p style="text-align: left">
-        🐈 🐈 🐈 🐈 🐈 🐈 🐈 🐈<br><br>
-        🍅 🍅 🍅 🍅 🍅<br>
-        </p>
-        :)
+          <br>
+          <p>
+            <b>Badges this week</b>
+          </p>
+          <br>
+          <p style="text-align: left">
+          🐈 🐈 🐈 🐈 🐈 🐈 🐈 🐈<br><br>
+          🍅 🍅 🍅 🍅 🍅<br>
+          </p>
+          :)
         </div>
       </div>
 
-      <div class="container" class="img-box" id="cat-image">
-      </div>
+      <div class="container" class="img-box" id="cat-image"></div>
 
-    </div> <!-- end of frame -->
+    </div> <!-- end of main container -->
+  </div> <!-- end of frame -->
 
 
-    
-    <div id="popup_window">
-      <div id="image-modal" class="modal">
-        <div id="app">
+  <!-- bulma.css modal popup -->
+  <div id="popup_window">
+    <div id="image-modal" class="modal">
+      <div id="app">
         <div class="modal-background"></div>
-        <div class="modal-content">
-        <div class="modal-card">
-        <!-- <header class="modal-card-head">
-          <p class="modal-card-title">Modal title</p>
-        </header> -->
-        <section id="modal-card-body">
-          <!-- Content ... -->
-        </section>
-        <!-- <footer class="modal-card-foot">
-          <button class="button is-success">Save changes</button>
-          <button class="button">Cancel</button>
-        </footer> -->
-        </div>
-        </div>
-        <button id="image-modal-close" class="modal-close">
-        </button>
+          <div class="modal-content">
+            <div class="modal-card">
+              <!-- <header class="modal-card-head">
+                <p class="modal-card-title">Modal title</p>
+              </header> -->
+              <section id="modal-card-body">
+                <!-- ... modal popup Content ... -->
+              </section>
+              <!-- <footer class="modal-card-foot">
+                <button class="button is-success">Save changes</button>
+                <button class="button">Cancel</button>
+              </footer> -->
+            </div>
+          </div>
+          <button id="image-modal-close" class="modal-close">
+          </button>
         </div>
       </div>
       <!-- <div id="showModal"></div> -->
       <!-- <button class="button" id="showModal">Show</button> -->
     </div>
+  </div>
+
+  
+  <!-- save image to localStorage -->
+  <!-- <input type="file" id="myFileInput"> -->
+  <img id="image" src="">
 
 
-      <script>
-        if ('serviceWorker' in navigator) {
-          navigator.serviceWorker.register('/serviceWorker.js'); }
-          screen.orientation.lock(portrait);
-      </script>
+  <script>
+    "use strict";
 
-      <script src="todo.js"></script>
-      <script src="fetch.js"></script>
-      <script src="pomodoro.js"></script>
+    if ('serviceWorker' in navigator) {
+      navigator.serviceWorker.register('/serviceWorker.js'); }
+  </script>
 
-  </body>
+  <!-- <script src="./styles/prog-circle.js"></script> -->
+  <script src="todo.js"></script>
+  <script src="pomodoro.js"></script>
+
+</body>
 </html>
-

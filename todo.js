@@ -25,7 +25,7 @@ function newItem() {
 
   let btn = document.createElement('div');
   btn.id = 'button';
-  btn.style = 'background-color: hsl(30, 54%, 48%); padding: 0px 8px;';
+  // btn.style = 'background-color: hsl(30, 54%, 48%); padding: 0px 8px;';
 
   btn.appendChild(text);
   li.appendChild(btn);
@@ -35,8 +35,6 @@ function newItem() {
   } else {
     let list = document.querySelector('#list');
     list.appendChild(li);
-
-    selectTask();
   }
 
   //onclick add task as goal & start timer function 'task'
