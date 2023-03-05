@@ -41,7 +41,7 @@
     <div class="container">
 
       <div class="title">
-        <h1>PrioKitty</h1>
+        <h3>PrioKitty</h3>
       </div>
 
       <!-- circular progress bar - showing day period
@@ -78,8 +78,8 @@
       <div class="container">
         
         <form name="toDoList" onSubmit="return false;">
-
-          <input type="text" name="ListItem" onclick="select()" id="input"/>
+          <br>
+          <input type="text" name="ListItem" onclick="select()" id="input" style="background-color:#fffdc2"/>
           <!-- <div onclick="newItem()" id="button">add</div> -->
           
           <!-- enter biuddy facetime mail address in preferences for facetime button -->
@@ -87,8 +87,16 @@
             <a href="facetime:user@example.com">call buddy</a>
             <br />
           </div> -->
-          
-          <ul id="list">
+          <br>
+          <center><div class="prio-button" id="button">prioritize
+          </div>
+        </center>
+        <br>
+          <img class="center" id="prio-cat" src="cat-keyb.gif" style="display: none;"/>
+
+
+          <ul id="list" style="list-style-type: roman;
+          ">
           <br />
           </ul>
           <br />
@@ -225,7 +233,7 @@
 
       <br>
     
-      <div class="container" id="button" style="opacity: 1;">
+      <div class="container" id="button" style="opacity: 1; background-color: hsl(30, 54%, 47%); padding: 0px 8px;">
         <div id="badges">
           <br>
           <p>
@@ -258,6 +266,8 @@
               </header> -->
               <section id="modal-card-body">
                 <!-- ... modal popup Content ... -->
+                <img id="popup-image" src="" />
+
               </section>
               <!-- <footer class="modal-card-foot">
                 <button class="button is-success">Save changes</button>
@@ -277,11 +287,11 @@
   
   <!-- save image to localStorage -->
   <!-- <input type="file" id="myFileInput"> -->
-  <img id="image" src="">
+
 
 
   <script>
-    "use strict";
+    // "use strict";
 
     if ('serviceWorker' in navigator) {
       navigator.serviceWorker.register('/serviceWorker.js'); }

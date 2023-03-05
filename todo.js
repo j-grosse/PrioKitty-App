@@ -13,17 +13,11 @@ addEventListener('keypress', function (event) {
 
 function newItem() {
   // Adding a new item to the list of items:
-
-  // document.getElementById("button").onclick = function(e) {
-  //   document.getElementById("input").value = "";
-  // };
-  document.getElementById('input').select();
-
   let li = document.createElement('li');
   let inputValue = document.getElementById('input').value;
   let text = document.createTextNode(inputValue);
 
-  let btn = document.createElement('div');
+  var btn = document.createElement('div');
   btn.id = 'button';
   // btn.style = 'background-color: hsl(30, 54%, 48%); padding: 0px 8px;';
 
@@ -37,14 +31,17 @@ function newItem() {
     list.appendChild(li);
   }
 
-  //onclick add task as goal & start timer function 'task'
+  document.getElementById('input').select();
+
+  //onclick add task as goal & start timer
   function selectTask() {
     let ptag = `<p id="taskText">${inputValue}</p>`;
     document.getElementById('taskText').innerHTML = ptag;
+    
     app.timer('start');
   }
 
-  // click selects the task, doubleclick deletes thetask
+  // click to select, doubleclick to delete task
   btn.onclick = (event) => {
     if (event.detail === 2) {
       deleteListItem();
@@ -56,7 +53,6 @@ function newItem() {
   function deleteListItem() {
     li.classList.add('delete');
   }
-
   /*
   //3(i). Adding the delete button "X":
   let crossOutButton = document.createElement('crossOutButton');
