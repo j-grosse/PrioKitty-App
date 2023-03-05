@@ -35,7 +35,7 @@ prioBtn.addEventListener('click', () => {
       prioCat.style.display= 'none';
       list.style.display = 'block';
     
-  },700); 
+  },1500); 
 });
 
 
