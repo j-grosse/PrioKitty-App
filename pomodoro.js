@@ -11,7 +11,9 @@ prioBtn.addEventListener('click', () => {
     const list = document.querySelector("ul");
     const items = list.querySelectorAll("li");
 
-    list.style.display = 'none';
+    // list.style.display = 'none';
+    document.querySelector('.prio-button').style.display = 'none';
+    prioBtn.visibility = 'hidden';
     const prioCat = document.querySelector('#prio-cat')
     prioCat.style.display = 'block';
 
@@ -30,12 +32,12 @@ prioBtn.addEventListener('click', () => {
     list.appendChild(frag);
 
     setTimeout(() => {
-    
 
       prioCat.style.display= 'none';
-      list.style.display = 'block';
-    
-  },1500); 
+      list.style.visibility = 'visible';
+      // list.style.display = 'block';
+      document.querySelector('.prio-button').style.display = 'inline';    
+  },1200); 
 });
 
 
@@ -228,10 +230,15 @@ var app = new Vue({
 
         case 'skip':
           if (firstRun) {
+            firstRun = false;
             break;
           }
-          popup();
+          document.getElementById("badges").textContent += "🍅";
+          
           togglePlay(jazz);
+          setTimeout(() => {
+            popup();
+          },1000);
           firstRun = true;
           
           this.timer_state == 'work' ? pause_dur * minute : main_dur * minute;

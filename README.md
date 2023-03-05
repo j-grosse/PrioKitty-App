@@ -1,2 +1,4 @@
-the first version of my PrioKitty Web App - a purring dubtechno Tasklist with Pomodoro timer ;) <br>
-you can view it live at https://priokitty-web-app.jay808.repl.co/
+Pomodoro Timer - Progressive Web App (PWA) <br>
+[view live](https://j-grosse.github.io/PrioKitty-App)
+
+![](app.png)
