@@ -15,24 +15,16 @@
   <meta name="theme-color" content="#000000">
   <meta http-equiv="ScreenOrientation" content="autoRotate: disabled">
 
-  <title>PrioKitty &#10004</title>
+  <title>PrioKitty</title>
   <link rel="icon" type="image/x-icon" href="favicon.png" />
   <link rel="manifest" href="manifest.json" />
-  <link
-    href="https://cdnjs.cloudflare.com/ajax/libs/bulma/0.7.5/css/bulma.css"
-    rel="stylesheet"
-    type="text/css"
-  />
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/bulma/0.7.5/css/bulma.min.css" rel="stylesheet" type="text/css">
   <link href="style.css" rel="stylesheet" type="text/css" />
+  <script src="lib/vue.js"></script>
 
-  <link href="./styles/prog-circle.css" rel="stylesheet" type="text/css" />
+  <!-- <link href="./styles/prog-circle.css" rel="stylesheet" type="text/css" /> -->
   <!-- <script src=" https://cdn.jsdelivr.net/npm/jquery@3.6.3/dist/jquery.min.js "></script> -->
-
-  <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
-    <!-- <script
-    defer
-    src="https://use.fontawesome.com/releases/v6.3.0/js/all.js"
-  ></script> -->
+  <!-- <script defer src="https://use.fontawesome.com/releases/v6.3.0/js/all.js"></script> -->
 </head>
 
 <body>
@@ -40,9 +32,9 @@
   <div class="frame">
     <div class="container">
 
-      <div class="title">
+      <!-- <div class="title">
         <h3>PrioKitty</h3>
-      </div>
+      </div> -->
 
       <!-- circular progress bar - showing day period
       Google Charts https://google-developers.appspot.com/chart/
@@ -88,9 +80,9 @@
             <br />
           </div> -->
 
-          <ul id="list">
+          <ol id="list">
           <br />
-          </ul>
+          </ol>
           <br />
 
           <br>
@@ -102,6 +94,7 @@
           </div>
           </center>
           <br>
+          <br>
           
 
           <div class="container" id="button" style="opacity: 1; background-color: hsl(30, 54%, 47%); padding: 0px 8px;">
@@ -110,7 +103,7 @@
               TASK
             </p>
             <br>
-            <div id="taskText"></div>
+            <div id="taskText">(select a task)</div>
             <br>
           </div>
           
@@ -158,7 +151,6 @@
       <div>
 
         <audio
-        loop
         id="meow" 
         preload="none" 
         src="shari_meow.mp3" 
@@ -212,16 +204,6 @@
         </audio>
         </div>
 
-        <div style="float: auto" onclick="togglePlay(pads);" id="button">
-          pads
-          <!-- https://jutatakahashi.bandcamp.com/track/continua-shift -->
-        <audio
-          id="pads"
-          preload="none" 
-          src="https://t4.bcbits.com/stream/69be0f7a1b9f615598f76ec4fe109b1b/mp3-128/363907645?p=0&ts=1677840157&t=10f1085f114a5901da0b22c67612bb463b83600b&token=1677840157_494d21547b29f5ef8311fc9c2ac456588325f9a5
-          " type="audio/mpeg">
-        </audio>
-        </div>
 
         <!-- <div style="float: auto" onclick="togglePlay(purr);" id="button">
           purr
@@ -301,8 +283,8 @@
   </script>
 
   <!-- <script src="./styles/prog-circle.js"></script> -->
-  <script src="todo.js"></script>
-  <script src="pomodoro.js"></script>
+  <script src="js/todo.js"></script>
+  <script src="/js/pomodoro.js"></script>
 
 </body>
 </html>

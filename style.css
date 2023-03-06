@@ -1,4 +1,4 @@
-/* @supports (padding: max(0px)) {
+@supports (padding: max(0px)) {
   // for iOS fullscreen
   body,
   header,
@@ -6,7 +6,7 @@
     padding-left: min(0vmin, env(safe-area-inset-left));
     padding-right: min(0vmin, env(safe-area-inset-right));
   }
-} */
+}
 
 // hide scrollbar
 ::-webkit-scrollbar {
@@ -27,7 +27,7 @@
   height: 0;
 }
 
-/* div {
+div {
   //-ms-overflow-style: none;  Edge, Internet Explorer
   scrollbar-width: none; // Firefox
   overflow-y: scroll;
@@ -36,7 +36,7 @@
 // hides scrollbars while allowing to scroll
 div::-webkit-scrollbar {
   display: none; // Chrome, Safari, Opera
-} */
+}
 
 html {
   overflow: scroll;
@@ -44,6 +44,7 @@ html {
   touch-action: pan-y;
   height: 100%;
   background-image: url('cute-cat-pattern.jpg');
+
 }
 
 body {
@@ -86,6 +87,7 @@ body {
 
 .container {
   width: 300px;
+  max-width: 300px;
   margin: 0 auto;
   margin-top: 0px;
   /* background: rgba(255, 255, 255, 0); */
@@ -109,9 +111,9 @@ form {
 input,
 select,
 textarea {
-  font-size: 80%;
+  font-size: 100%;
   border-radius: 6px;
-  padding: 4px 15px 4px 5px;
+  padding: 4px 10px 4px 5px;
   width: 100%;
 }
 
@@ -129,14 +131,14 @@ textarea {
 #button:hover {
   cursor: pointer;
   opacity: 0.8;
-  ul {
+  ol{
     padding-left: 20px;
   }
-  ul li {
+  olli {
     padding: 5px;
     color: #cb8e53;
   }
-  ul li:nth-child(even) {
+  olli:nth-child(even) {
     background-color: #ffffff;
   }
   .strike {
@@ -164,8 +166,9 @@ li > crossOutButton {
   font-weight: 800;
 }
 
-ul {
+ol{
   line-height: 150%;
+  list-style-position: inside /* our outside */
 }
 
 .img-box img {

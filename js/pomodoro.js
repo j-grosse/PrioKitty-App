@@ -1,48 +1,9 @@
-let main_dur = 25;
-// let main_dur = 0.05;
-let pause_dur = 5; 
-// let pause_dur = 0.05; 
+// let main_dur = 25;
+// let pause_dur = 5; 
+let main_dur = 0.05;
+let pause_dur = 0.05; 
 let minute = 60;
 let firstRun = false;
-
-const prioBtn = document.querySelector('.prio-button');
-prioBtn.addEventListener('click', () => {
-    const frag = document.createDocumentFragment();
-    const list = document.querySelector("ul");
-    const items = list.querySelectorAll("li");
-
-    // list.style.display = 'none';
-    document.querySelector('.prio-button').style.display = 'none';
-    prioBtn.visibility = 'hidden';
-    const prioCat = document.querySelector('#prio-cat')
-    prioCat.style.display = 'block';
-
-    const sortedList = Array.from(items).sort(() => Math.random() - 0.5);
-    
-    // (function(a, b) {
-    //   const c = a.textContent,
-    //     d = b.textContent;
-    //   return c < d ? -1 : c > d ? 1 : 0;
-    // });
-
-    for (let item of sortedList) {
-      frag.appendChild(item);
-    }
-
-    list.appendChild(frag);
-
-    setTimeout(() => {
-
-      prioCat.style.display= 'none';
-      list.style.visibility = 'visible';
-      // list.style.display = 'block';
-      document.querySelector('.prio-button').style.display = 'inline';    
-  },1200); 
-});
-
-
-// document.querySelector('#prio').style.display = 'none';
-// document.querySelector('#list').style.display = 'block';
 
 let i = 0;
 let vol = 0.5;
@@ -112,51 +73,37 @@ async function convertToFile(url){
 
 async function saveFile(url) {
   const imgFile = await convertToFile(url);
-  console.log(imgFile);
-
+  let number = new Date().getTime(); // create random filename
+  let filename = number + imgFile.name;
   const reader = new FileReader();
-  let filename;
-
+  
   if (imgFile) {
-      // save file to reader.result
-      reader.readAsDataURL(imgFile);
-    }
-    // "load" fires when file is read succesfully and starts function to name file
-    reader.addEventListener("load", function () { 
-    let number = new Date().getTime();
-    filename = number + imgFile.name;
-    // save to localstorage under this filename
+    // save file to reader.result
+    reader.readAsDataURL(imgFile);
+  }
+  // save to localstorage when file is read
+  reader.addEventListener("load", function () { 
     localStorage.setItem(filename, reader.result);
-
-    console.log(filename);
-
   }, false);
-
-
+  
+  console.log(imgFile);
+  console.log(filename);
+  
+  // add image as base64 to popup-image tag
+  // const img = document.getElementById('popup-image');
+  // img.src = 'data:image/png;base64,' + imgFile;
   
   // load image from localStorage
-
-  // add image as base64 to popup-image tag
-  let img = document.getElementById('popup-image');
-  img.src = 'data:image/png;base64,' + imgFile.blob;
+  // reader.readAsDataUrl(imgFile);
+  
 };
 
 // localStorage.clear();
 
 
 
-
-//   document.querySelector("#myFileInput").addEventListener("change", function () {
-//     const reader = new FileReader();
-//     reader.addEventListener("load", () => {
-//     localStorage.setItem("recent-image", reader.result);
-//   });
-//   reader.readAsDataUrl(this.files[0]);
-  
-//   });
-
 //   document.addEventListener("DOMContentLoaded", () => {
-//   const recentImageDataUrl = localStorage.getItem("recent-image");
+//   const recentImageDataUrl = localStorage.getItem("filename");
 
 //   if (recentImageDataUrl) {
 //     document.querySelector("#imgPreview").setAttribute("src", recentImageDataUrl);
@@ -164,15 +111,15 @@ async function saveFile(url) {
 // });
 
 
-
 function popup() {
   // get task text for popup image
   let taskText = document.getElementById('taskText').textContent;
   let task_nospace = taskText.replace(' ', '%20');
   let url = `https://cataas.com/cat/says/${task_nospace}`;
-  // saveFile(url);
-  saveFile("https://en.wikipedia.org/wiki/File:Cat_August_2010-4.jpg");
 
+  document.getElementById('popup-image').src = url;
+  saveFile(url);
+  
   // let imageTag = '<img id="cat" src=' + url + '%20&#8730' + '?type=md />';
   // document.getElementById('modal-card-body').innerHTML = imageTag;
 
@@ -192,6 +139,37 @@ function popup() {
 }
 
 
+prioritize();
+
+function prioritize() {
+  const prioBtn = document.querySelector('.prio-button');
+  prioBtn.addEventListener('click', () => {
+    const frag = document.createDocumentFragment();
+    const list = document.querySelector("ol");
+    const items = list.querySelectorAll("li");
+    const prioCat = document.querySelector('#prio-cat')
+
+    list.style.visibility = 'hidden';
+    prioBtn.style.display = 'none';
+    prioCat.style.display = 'block';
+
+    setTimeout(() => {
+      
+      prioCat.style.display= 'none';
+      prioBtn.style.display = 'inline';    
+
+      const sortedList = Array.from(items).sort(() => Math.random() - 0.5);
+      for (let item of sortedList) {
+        frag.appendChild(item);
+      }
+
+      list.appendChild(frag);
+      list.style.visibility = 'visible';
+    },800); 
+  });
+};
+
+
 
 // Vue.js Pomodoro Timer
 
@@ -209,16 +187,18 @@ var app = new Vue({
       switch (action) {
         case 'start':
           togglePlay(dub);
-
+          dub.play();
           if (!this.timer_running) {
             this.timer_id = setInterval(this.tick, 1000);
             this.timer_running = true;
-          }
+          };
           break;
 
         case 'reset':
-          // dub.pause();
-          meow.play();
+          togglePlay(jazz); // stops music
+          jazz.pause();
+          meow.play();        
+
 
           clearInterval(this.timer_id);
           this.timer_id = null;
@@ -229,17 +209,18 @@ var app = new Vue({
           break;
 
         case 'skip':
+          // on second run
           if (firstRun) {
             firstRun = false;
             break;
           }
+          // on first run
+          firstRun = true;
           document.getElementById("badges").textContent += "🍅";
           
-          togglePlay(jazz);
-          setTimeout(() => {
-            popup();
-          },1000);
-          firstRun = true;
+          togglePlay(jazz);  // starts music
+
+          setTimeout(popup(),1000);
           
           this.timer_state == 'work' ? pause_dur * minute : main_dur * minute;
           if (this.timer_running && !this.timer_paused) {
@@ -277,7 +258,7 @@ var app = new Vue({
       this.timer_state =
         this.timer_state == 'work' ? 'rest' : setTimeout(() => {
         this.timer('reset');
-      }, 1000);
+      }, 1500);
       // this.timer_state = this.timer_state == 'work' ? 'rest' : 'work';
       this.timer('skip');
 
