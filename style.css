@@ -18,11 +18,11 @@
   background: #FF0000;
 } */
 .container {
-  scrollbar-height: none; // Firefox 
-  -ms-overflow-style: none; // Internet Explorer 10+ 
+  scrollbar-height: none; // Firefox
+  -ms-overflow-style: none; // Internet Explorer 10+
 }
 .container::-webkit-scrollbar {
-  // WebKit 
+  // WebKit
   width: 0;
   height: 0;
 }
@@ -44,7 +44,6 @@ html {
   touch-action: pan-y;
   height: 100%;
   background-image: url('cute-cat-pattern.jpg');
-
 }
 
 body {
@@ -131,7 +130,7 @@ textarea {
 #button:hover {
   cursor: pointer;
   opacity: 0.8;
-  ol{
+  ol {
     padding-left: 20px;
   }
   olli {
@@ -166,9 +165,9 @@ li > crossOutButton {
   font-weight: 800;
 }
 
-ol{
+ol {
   line-height: 150%;
-  list-style-position: inside /* our outside */
+  list-style-position: inside; /* our outside */
 }
 
 .img-box img {
