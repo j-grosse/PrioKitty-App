@@ -165,7 +165,7 @@ function prioritize() {
 
       list.appendChild(frag);
       list.style.visibility = 'visible';
-    },800); 
+    },700); 
   });
 };
 
