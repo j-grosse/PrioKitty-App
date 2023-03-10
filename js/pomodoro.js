@@ -5,6 +5,7 @@ let pause_dur = 5;
 let minute = 60;
 let firstRun = false;
 
+
 let i = 0;
 let vol = 0.5;
 var aaah = document.getElementById('aaah');
