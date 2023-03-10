@@ -1,7 +1,7 @@
-let main_dur = 25;
-let pause_dur = 5;
-// let main_dur = 0.05;
-// let pause_dur = 0.05;
+// let main_dur = 25;
+// let pause_dur = 5;
+let main_dur = 0.05;
+let pause_dur = 0.05;
 let minute = 60;
 let firstRun = false;
 
@@ -15,7 +15,6 @@ var dub = document.getElementById('dub');
 dub.volume = vol;
 var jazz = document.getElementById('jazz');
 jazz.volume = vol;
-
 
 function togglePlay(genre) {
   let isPaused;
@@ -209,15 +208,46 @@ var app = new Vue({
             firstRun = false;
             break;
           }
+
           // on first run
           firstRun = true;
           document.getElementById('badges').textContent += '🍅';
           // togglePlay(jazz); // starts music
           popup();
           togglePlay(aaah);
+
           setTimeout(() => {
             jazz.play();
+
+            // remove li with currentTaskText
+            // let currentTaskText =
+            //   document.getElementById('pTaskText').textContent;
+
+            //   function hideItem(el, bool) {
+            //     el.forEach(item =>
+            //        item.children[0].textContent === 'Log In' && bool === true ?
+            //          item.classList.add('hide') :
+            //          item.classList.remove('hide')
+            //     )
+            //   }
+
+            // $("ol li > div:contains(currentTaskText)").parent().remove();
+
+            // $('li')
+            // .filter(function () {
+            //   return $.text([this]) ===
+            //   `
+            //   <div id="button">${currentTaskText}</div>
+            //   <crossoutbutton>🐾</crossoutbutton>
+            //   `;
+            // })
+            // classList.add("delete");
+
+            // replace Text in taskText <p>-Tag
+            let currentTaskTag = document.getElementById('pTaskText');
+            currentTaskTag.innerText = '(select a task)';
           }, 3000);
+
           this.timer_state == 'work' ? pause_dur * minute : main_dur * minute;
           if (this.timer_running && !this.timer_paused) {
             // this.skip();

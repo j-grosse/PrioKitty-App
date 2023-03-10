@@ -36,9 +36,9 @@ function newItem() {
   
   //onclick add task as goal & start timer
   function selectTask() {
-    let ptag = `<p id="taskText">${inputValue}</p>`;
-    document.getElementById('taskText').innerHTML = ptag;
-    
+    let pTag = `<p id="pTaskText">${inputValue}</p>`;
+    document.getElementById('taskText').innerHTML = pTag;
+
     app.timer('start');
   }
 
@@ -54,15 +54,18 @@ function newItem() {
   function deleteListItem() {
     li.classList.add('delete');
   }
-  /*
-  //3(i). Adding the delete button "X":
+  
+  // 3(i). Adding the delete button "X":
   let crossOutButton = document.createElement('crossOutButton');
-  crossOutButton.appendChild(document.createTextNode('🗑️'));
+  crossOutButton.appendChild(document.createTextNode('🐾'));
   li.appendChild(crossOutButton);
-
   crossOutButton.addEventListener('click', deleteListItem);
-  //3(ii). Adding CLASS DELETE (DISPLAY: NONE) from the css:
-  */
+
+  // 4. Reordering the items:
+  $('#list').sortable();
+
+  // Adding CLASS DELETE (DISPLAY: NONE) from the css:
+  
 }
 //3(iii). Crossing out an item from the list of items:
 // function crossOut() {
@@ -70,5 +73,3 @@ function newItem() {
 // }
 //  li.addEventListener("dblclick",crossOut);
 
-// 4. Reordering the items:
-// $('#list').sortable();
