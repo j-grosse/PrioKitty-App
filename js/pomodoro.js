@@ -5,7 +5,6 @@ let pause_dur = 5;
 let minute = 60;
 let firstRun = false;
 
-
 let i = 0;
 let vol = 0.5;
 var aaah = document.getElementById('aaah');
@@ -16,6 +15,7 @@ var dub = document.getElementById('dub');
 dub.volume = vol;
 var jazz = document.getElementById('jazz');
 jazz.volume = vol;
+
 
 function togglePlay(genre) {
   let isPaused;
@@ -167,6 +167,7 @@ function prioritize() {
 }
 
 // Vue.js Pomodoro Timer
+// start, skip, reset
 
 var app = new Vue({
   el: '#app',
@@ -205,8 +206,6 @@ var app = new Vue({
         case 'skip':
           // on second run
           if (firstRun) {
-            jazz.play();
-
             firstRun = false;
             break;
           }
@@ -214,9 +213,11 @@ var app = new Vue({
           firstRun = true;
           document.getElementById('badges').textContent += '🍅';
           // togglePlay(jazz); // starts music
+          popup();
           togglePlay(aaah);
-
-          setTimeout(popup(), 1000);
+          setTimeout(() => {
+            jazz.play();
+          }, 3000);
           this.timer_state == 'work' ? pause_dur * minute : main_dur * minute;
           if (this.timer_running && !this.timer_paused) {
             // this.skip();
