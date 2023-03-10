@@ -33,6 +33,7 @@ function newItem() {
 
   document.getElementById('input').select();
 
+  
   //onclick add task as goal & start timer
   function selectTask() {
     let ptag = `<p id="taskText">${inputValue}</p>`;
