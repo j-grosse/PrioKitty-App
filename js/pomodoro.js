@@ -220,28 +220,9 @@ var app = new Vue({
             jazz.play();
 
             // remove li with currentTaskText
-            // let currentTaskText =
-            //   document.getElementById('pTaskText').textContent;
-
-            //   function hideItem(el, bool) {
-            //     el.forEach(item =>
-            //        item.children[0].textContent === 'Log In' && bool === true ?
-            //          item.classList.add('hide') :
-            //          item.classList.remove('hide')
-            //     )
-            //   }
-
-            // $("ol li > div:contains(currentTaskText)").parent().remove();
-
-            // $('li')
-            // .filter(function () {
-            //   return $.text([this]) ===
-            //   `
-            //   <div id="button">${currentTaskText}</div>
-            //   <crossoutbutton>🐾</crossoutbutton>
-            //   `;
-            // })
-            // classList.add("delete");
+            let currentTaskText =
+              document.getElementById('pTaskText').textContent;
+            $(`ol#list li:contains(${currentTaskText})`).remove();
 
             // replace Text in taskText <p>-Tag
             let currentTaskTag = document.getElementById('pTaskText');
