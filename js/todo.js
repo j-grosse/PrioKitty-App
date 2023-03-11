@@ -8,6 +8,12 @@ addEventListener('keypress', function (event) {
   if (event.key === 'Enter') {
     event.preventDefault();
     newItem();
+
+    // allow only 5 list items
+    $(function () {
+      $('ol#list li:gt(4)').remove();
+    });
+
   }
 });
 
@@ -28,48 +34,40 @@ function newItem() {
     // alert('You must write something!');
   } else {
     let list = document.querySelector('#list');
-    list.appendChild(li);
+    list.appendChild(li);  // add li to list
   }
 
   document.getElementById('input').select();
 
-  
-  //onclick add task as goal & start timer
+  // make selected task the current task and start timer
   function selectTask() {
     let pTag = `<p id="pTaskText">${inputValue}</p>`;
     document.getElementById('taskText').innerHTML = pTag;
-
-    app.timer('start');
+    app.timer('start'); // start the timer
   }
 
-  // click to select, doubleclick to delete task
+  // doubleclick to delete task, click to select task
   btn.onclick = (event) => {
     if (event.detail === 2) {
-      deleteListItem();
+      li.remove();
     } else if (event.detail === 1) {
       selectTask();
     }
   };
 
-  function deleteListItem() {
-    li.classList.add('delete');
-  }
-  
-  // 3(i). Adding the delete button "X":
+  // delete button "🐾":
   let crossOutButton = document.createElement('crossOutButton');
   crossOutButton.appendChild(document.createTextNode('🐾'));
   li.appendChild(crossOutButton);
-  crossOutButton.addEventListener('click', deleteListItem);
+  crossOutButton.addEventListener('click', () => li.remove() );
 
-  // 4. Reordering the items:
+  // make items sortable to re-order them:
   $('#list').sortable();
 
-  // Adding CLASS DELETE (DISPLAY: NONE) from the css:
-  
 }
+
 //3(iii). Crossing out an item from the list of items:
 // function crossOut() {
 //   li.classList.toggle('strike');
 // }
 //  li.addEventListener("dblclick",crossOut);
-
