@@ -19,7 +19,7 @@
 }
 .container {
   scrollbar-height: none; // Firefox
-  -ms-overflow-style: none; // Internet Explorer 10+
+  -ms-overflow-style: none; // Edge, Internet Explorer 10+
 }
 .container::-webkit-scrollbar {
   // WebKit
@@ -41,13 +41,21 @@ div::-webkit-scrollbar {
 
 html {
   overflow: hidden; // scroll
+  /* position: fixed; */
   overflow-x: hidden;
   touch-action: pan-y;
   height: 100%;
   background-image: url('cute-cat-pattern.jpg');
 }
 
+body > .mainwrapper {
+  width: 100vw;
+  height: 100vh;
+  overflow-y: scroll;
+  -webkit-overflow-scrolling: touch; /* enables “momentum” (smooth) scrolling */
+}
 body {
+  overflow: hidden; // scroll
   position: fixed; left: 0; top: 0; right: 0; bottom: 0;
   touch-action: pan-y;
   min-height: 100%;
