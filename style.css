@@ -8,15 +8,15 @@
   }
 }
 
+/* // Optional: show position indicator in red
+::-webkit-scrollbar-thumb {
+  background: #FF0000;
+} */
 // hide scrollbar
 ::-webkit-scrollbar {
   width: 0; // Remove scrollbar space
   background: transparent; // Optional: just make scrollbar invisible
 }
-/* // Optional: show position indicator in red
-::-webkit-scrollbar-thumb {
-  background: #FF0000;
-} */
 .container {
   scrollbar-height: none; // Firefox
   -ms-overflow-style: none; // Internet Explorer 10+
@@ -27,6 +27,7 @@
   height: 0;
 }
 
+// no elastic bounce (overflow-scrolling) effect
 div {
   //-ms-overflow-style: none;  Edge, Internet Explorer
   scrollbar-width: none; // Firefox
@@ -39,7 +40,7 @@ div::-webkit-scrollbar {
 }
 
 html {
-  overflow: scroll;
+  overflow: hidden; // scroll
   overflow-x: hidden;
   touch-action: pan-y;
   height: 100%;
@@ -169,7 +170,6 @@ ol {
   line-height: 150%;
   list-style-position: inside; /* our outside */
 }
-
 
 .img-box img {
   /* margin-top: 20px; */

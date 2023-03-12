@@ -1,6 +1,7 @@
 {
   "name": "PrioKitty App",
   "short_name": "PrioKitty",
+  "description": "Get things done, meow!",
   "start_url": "/PrioKitty-App/?source=pwa&standalone=true",
   "icons": [
     {
@@ -19,5 +20,5 @@
   "theme_color": "#FFFFFF",
   "background_color": "#000000",
   "display": "fullscreen",
-  "orientation": "natural"
+  "orientation": "portrait"
 }

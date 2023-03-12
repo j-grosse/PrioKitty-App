@@ -48,11 +48,12 @@ function newItem() {
 
   // doubleclick to delete task, click to select task
   btn.onclick = (event) => {
-    if (event.detail === 2) {
-      li.remove();
-    } else if (event.detail === 1) {
+    // dbl click to remove li
+    // if (event.detail === 2) {
+    //   li.remove();
+    // } else if (event.detail === 1) {
       selectTask();
-    }
+    // }
   };
 
   // delete button "🐾":
