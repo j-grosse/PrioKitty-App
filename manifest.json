@@ -2,7 +2,7 @@
   "name": "PrioKitty App",
   "short_name": "PrioKitty",
   "description": "Get things done, meow!",
-  "start_url": "/PrioKitty-App/?source=pwa&standalone=true",
+  "start_url": "/PrioKitty-App/?source=pwa&fullscreen=true",
   "icons": [
     {
       "src": "logo.png",
